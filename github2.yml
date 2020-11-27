@@ -1,0 +1,12 @@
+---
+- name: removing pkg
+  hosts: all
+  tasks:
+    - name: removing pkg
+      yum:
+        name: httpd
+        state: absent
+    - name: stoping selinux
+      selinux:
+        policy: targeted
+        state: permissive
